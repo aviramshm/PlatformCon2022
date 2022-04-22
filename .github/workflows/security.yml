@@ -19,6 +19,7 @@ jobs:
             --enableRetired
       - name: Upload Test results
         uses: actions/upload-artifact@master
+        if: always()
         with:
            name: Depcheck report
            path: ${{github.workspace}}/reports
