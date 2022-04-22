@@ -76,12 +76,12 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker build -t docker.io/aviramshm/image_goat:${{ github.sha }} .
+          docker build -t docker.io/aviramsh/image_goat:${{ github.sha }} .
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/aviramshm/image_goat:${{ github.sha }}'
+          image-ref: 'docker.io/aviramsh/image_goat:${{ github.sha }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
