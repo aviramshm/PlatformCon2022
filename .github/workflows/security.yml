@@ -66,7 +66,6 @@ jobs:
     name: Dependency-Checker1
     steps:
       - uses: actions/checkout@v1
-      - run: mvn clean install
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         with:
