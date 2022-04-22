@@ -46,24 +46,10 @@ jobs:
       - name: display kics results
         run: |
           cat myResults/results.json
-
+          
   SCA:
     runs-on: ubuntu-latest
     name: Dependency-Checker
-    steps:
-      - uses: actions/checkout@v1
-      - run: |
-          pip install safety
-          safety check -r requirements.txt --json -o output.json
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: safety
-          path: output.json
-          
-  SCA1:
-    runs-on: ubuntu-latest
-    name: Dependency-Checker1
     steps:
       - uses: actions/checkout@v1
       - name: Depcheck
