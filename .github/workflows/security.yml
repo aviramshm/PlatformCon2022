@@ -17,7 +17,7 @@ jobs:
     name: API-Security-Scanner
     services:
       movies:
-        image: ghcr.io/aviramshm/goat_image:latest
+        image: ghcr.io/dvdmelamed/goat-movies:latest
         options: >-
           --health-cmd="curl http://127.0.0.1:80/movies/count || exit 1"
           --health-interval=10s
