@@ -60,6 +60,27 @@ jobs:
         with:
           name: safety
           path: output.json
+          
+  SCA1:
+    runs-on: ubuntu-latest
+    name: Dependency-Checker1
+    steps:
+      - uses: actions/checkout@v1
+      - run: mvn clean install
+      - name: Depcheck
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'test'
+          path: '.'
+          format: 'HTML'    
+          args: >
+            --failOnCVSS 7
+            --enableRetired
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+           name: Depcheck report
+           path: ${{github.workspace}}/reports
 
   CONTAINER:
     runs-on: ubuntu-18.04
